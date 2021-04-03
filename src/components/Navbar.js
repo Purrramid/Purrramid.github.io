@@ -44,6 +44,18 @@ class Navbar extends React.Component {
 						<Jump className="btn text-white d-none d-sm-inline-block bold" to="games" offset={this.offset}>Games</Jump>
 						<Jump className="btn text-white d-none d-sm-inline-block bold" to="streamers" offset={this.offset}>Streamers</Jump>
 						<a className="btn text-white bold" href="https://marty-bot.web.app" id="marty">Marty Bot ↗</a>
+						<div className="nav-item dropdown">
+							{/* eslint-disable-next-line */}
+							<a className="nav-link text-white dropdown-toggle d-inline-block d-sm-none" tabIndex="0" role="button" id="navbarScrollingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+								Jump
+							</a>
+							<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+								<Jump className="dropdown-item" to="community" offset={this.offset}>Community</Jump>
+								<Jump className="dropdown-item" to="games" offset={this.offset}>Games</Jump>
+								<Jump className="dropdown-item" to="streamers" offset={this.offset}>Streamers</Jump>
+								<a className="dropdown-item" href="https://marty-bot.web.app" id="marty">MartyBot ↗</a>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</nav>

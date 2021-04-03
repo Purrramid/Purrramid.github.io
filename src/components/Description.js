@@ -1,10 +1,18 @@
 import React from "react";
+import { Link as Jump } from 'react-scroll';
 import cats from '../img/cats.png';
 
 class Description extends React.Component {
+	offset = -60;
+
 	render() {
 		return (
 			<div id="description" className="bg-black-30 w-100 text-white">
+				<div className="navbar d-flex justify-content-around bold d-block d-sm-none">
+					<Jump className="btn text-white" to="community" offset={this.offset}>Community</Jump>
+					<Jump className="btn text-white" to="games" offset={this.offset}>Games</Jump>
+					<Jump className="btn text-white" to="streamers" offset={this.offset}>Streamers</Jump>
+				</div>
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-4">
