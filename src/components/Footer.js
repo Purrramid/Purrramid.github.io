@@ -36,7 +36,6 @@ class Footer extends React.Component {
 					</div>
 					<div className="text-center">All images belong to their respective owners.</div>
 					<div className="text-center"><a href="https://github.com/purrramid/react" className="text-white text-decoration-none">&lt;&gt; with ♥ by <span className="user">@vortami</span></a></div>
-					<div className="text-center"><a href="https://github.com/purrramid/purrramid.github.io" className="text-white text-decoration-none">click here idiot</a></div>
 				</div>
 			</footer>
 		);
