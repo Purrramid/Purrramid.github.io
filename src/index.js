@@ -8,7 +8,8 @@ import Streamers from './Streamers';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 // eslint-disable-next-line
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 
 firebase.initializeApp({
   databaseURL: "https://djinnjadksnkjadsjknsadnjkdsa-default-rtdb.firebaseio.com"
