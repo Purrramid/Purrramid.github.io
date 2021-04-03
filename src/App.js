@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components:
+import Description from './components/Description';
+import Community from './components/Community';
+import Games from './components/Games';
+import Streamers from './components/Streamers';
+import React from 'react';
+
+class App extends React.Component {
+  render() {
+    return (
+      <main>
+        <Description />
+        <div className="container text-white my-5">
+          <Community />
+          <Games />
+          <Streamers firebase={this.props.firebase} />
+        </div>
+      </main>
+    );
+  }
 }
 
 export default App;
