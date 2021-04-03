@@ -1,6 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css';
-
 // Components:
 import Description from './components/Description';
 import Community from './components/Community';

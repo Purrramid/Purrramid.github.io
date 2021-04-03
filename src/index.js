@@ -5,8 +5,15 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './App';
 import Streamers from './Streamers';
 
+// CSS:
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './style.css';
+
+// Components:
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
 // eslint-disable-next-line
 import firebase from 'firebase/app';
 import 'firebase/database';
