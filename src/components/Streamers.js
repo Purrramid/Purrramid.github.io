@@ -39,7 +39,7 @@ class Streamers extends React.Component {
 							streamers: {
 								...this.state.streamers,
 								[channel._id]: {
-									name: channel.name,
+									name: channel.display_name,
 									url: channel.url,
 									image: channel.logo,
 									id: channel._id,
