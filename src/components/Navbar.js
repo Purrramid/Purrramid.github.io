@@ -8,23 +8,26 @@ class Navbar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			top: props.mainSite ? window.scrollY === 0 : false,
+			top: props.mainSite ? window.scrollY <= 0 : false,
 			mainSite: this.props.mainSite || false
 		};
 	}
 
 	componentDidMount() {
-		const scrollEvent = event => {
+		window.addEventListener("scroll", () => {
 			this.setState({
-				top: this.props.mainSite ? window.scrollY === 0 : false,
-				mainSite: this.props.mainSite || false
+				top: this.props.mainSite ? window.scrollY <= 0 : false
 			});
-			if (event.type === "hashchange") {
-				window.scrollTo({ top: 0 });
-			}
-		}
-		window.addEventListener("scroll", scrollEvent);
-		window.addEventListener("hashchange", scrollEvent);
+		});
+		window.addEventListener("hashchange", () => {
+			this.setState({
+				mainSite: this.props.mainSite || false,
+				top: this.props.mainSite ? window.scrollY <= 0 : false
+			});
+			window.scrollTo({
+				top: 0
+			});
+		});
 	}
 
 	render() {
