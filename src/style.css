@@ -108,6 +108,7 @@ streamers img {
 
 streamers>.live>img {
 	border-color: #F00;
+	margin-bottom: -2em;
 }
 
 streamers>.live::after {
@@ -121,9 +122,8 @@ streamers>.live::after {
 	padding: 5px 10px;
 	position: relative;
 	justify-self: center;
-	top: -2em;
 	width: 50%;
-	margin: 0 25% -2em;
+	margin: 0 25%;
 	text-align: center;
 }
 

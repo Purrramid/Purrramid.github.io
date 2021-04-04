@@ -8,7 +8,7 @@ class Streamers extends React.Component {
 		this.firebase = props.firebase;
 
 		this.state = {
-			streamers: [],
+			streamers: {},
 			loading: true
 		}
 	}
@@ -19,15 +19,13 @@ class Streamers extends React.Component {
 			'Client-ID': 'i2x0iemvdx3sizjg7tz0vg3i6hnx3v'
 		}
 
-		this.firebase.database().ref("vips").once("value", snap => {
+		this.firebase.database().ref("vips").once("value", async snap => {
 			/** @type {[]} */
 			const channels = snap.val();
-			fetch(`https://api.twitch.tv/kraken/channels?id=${channels.join(",")}`, { headers })
+			await fetch(`https://api.twitch.tv/kraken/channels?id=${channels.join(",")}`, { headers })
 				.then(r => r.text())
 				.then(JSON.parse)
 				.then(j => {
-					let channelData = {};
-
 					j.channels.forEach(channel => {
 						let icon = document.createElement("img");
 						icon.src = channel.logo;
@@ -37,30 +35,53 @@ class Streamers extends React.Component {
 						link.appendChild(icon);
 						link.target = "_blank";
 
-						channelData[channel._id] = link;
 						this.setState({
-							streamers: this.state.streamers.concat({
-								name: channel.name,
-								url: channel.url,
-								image: channel.logo
-							})
+							streamers: {
+								...this.state.streamers,
+								[channel._id]: {
+									name: channel.name,
+									url: channel.url,
+									image: channel.logo,
+									id: channel._id,
+									isLive: false
+								}
+							}
 						})
 					});
+				});
 
-					return channelData;
+			await fetch(`https://api.twitch.tv/kraken/streams/?channel=${channels}`, { headers })
+				.then(r => r.text())
+				.then(JSON.parse)
+				.then(j => {
+					console.log(j);
+					j.streams.forEach(stream => {
+						// channelData[stream.channel._id].classList.add("live");
+						// element.insertBefore(channelData[stream.channel._id], element.firstChild);
+						// stream.channel._id
+						this.setState({
+							streamers: {
+								...this.state.streamers,
+								[stream.channel._id]: {
+									...this.state.streamers[stream.channel._id],
+									isLive: true
+								}
+							}
+						});
+						console.log(this.state);
+					});
 				})
-				// .then(channelData => {
-				// 	channelData
-				// })
 				.finally(() => {
 					this.setState({
 						loading: false
-					})
+					});
+					console.log(this.state);
 				});
 		});
 	}
 
 	render() {
+
 		return (
 			<div className="my-3" id="streamers">
 				<h2>Streamers</h2>
@@ -68,9 +89,12 @@ class Streamers extends React.Component {
 				<div id="spinner" className="spinner-border" hidden={!this.state.loading}></div>
 				<streamers className="w-100 d-grid grid-7">
 					{
-						this.state.streamers.map((streamer, i) => (
-							<a key={i} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} /></a>
-						))
+						Object.values(this.state.streamers)
+							.sort((a, b) => Math.random() > .5 ? 1 : -1)
+							.sort((a, b) => a.isLive ? -1 : b.isLive ? 1 : 0)
+							.map(streamer => (
+								<a className={`${streamer.isLive ? 'live' : ''}`} key={streamer.id} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} /></a>
+							))
 					}
 				</streamers>
 				<a href="#/streamers" className="more d-block mt-3">Show more</a>
