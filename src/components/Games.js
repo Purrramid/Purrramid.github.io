@@ -24,8 +24,8 @@ class Game extends React.Component {
 class Games extends React.Component {
 	render() {
 		return (
-			<div className="my-3" id="games">
-				<h2>Games</h2>
+			<div className="my-3">
+				<h2 id="games">Games</h2>
 				<p>We play a lot of games, and when we say that, we mean it. Here's just a small list of the games we play.</p>
 				<games className="d-grid grid-5">
 					<Game name="Tom Clancy's Rainbow Six Siege" href="https://rainbow6.com" />

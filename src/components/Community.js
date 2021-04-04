@@ -4,8 +4,8 @@ import { Link as Jump } from 'react-scroll';
 class Community extends React.Component {
 	render() {
 		return (
-			<div className="my-3" id="community">
-				<h2>Community</h2>
+			<div className="my-3">
+				<h2 id="community">Community</h2>
 				<p>We host multiple community-driven events every week! Check them out:</p>
 				<div className="d-grid grid-3">
 					<div>

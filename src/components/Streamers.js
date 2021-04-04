@@ -83,8 +83,8 @@ class Streamers extends React.Component {
 	render() {
 
 		return (
-			<div className="my-3" id="streamers">
-				<h2>Streamers</h2>
+			<div className="my-3">
+				<h2 id="streamers">Streamers</h2>
 				<p>Our community consists of a lot of amazing streamers. Below is a list of our VIP streamers.</p>
 				<div id="spinner" className="spinner-border" hidden={!this.state.loading}></div>
 				<streamers className="w-100 d-grid grid-7">
