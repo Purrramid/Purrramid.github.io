@@ -17,7 +17,7 @@ class Community extends React.Component {
 					<div>
 						<div className="border rounded bg-black-30">
 							<div className="card-header">Game Night</div>
-							<div className="card-body">Every night (and sometimes day), we play videogames together! The big game in the community is <b>Rainbow Six Siege</b>, but we do occasionally play other games like <Jump className="text-light" to="#games">these</Jump>.</div>
+							<div className="card-body">Every night (and sometimes day), we play videogames together! The big game in the community is <b>Rainbow Six Siege</b>, but we do occasionally play other games like <Jump className="text-light cursor-pointer" to="games" offset={-70}>these</Jump>.</div>
 						</div>
 					</div>
 					<div>
