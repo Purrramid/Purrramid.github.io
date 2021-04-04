@@ -4,6 +4,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import App from './App';
 import Streamers from './Streamers';
+import BLM from './components/BLM';
 
 // CSS:
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,6 +26,7 @@ firebase.initializeApp({
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <BLM />
       <Switch>
         <Route path="/streamers" exact={true}>
           <Navbar />
