@@ -14,11 +14,14 @@ class Navbar extends React.Component {
 	}
 
 	componentDidMount() {
-		const scrollEvent = _event => {
+		const scrollEvent = event => {
 			this.setState({
 				top: this.props.mainSite ? window.scrollY === 0 : false,
 				mainSite: this.props.mainSite || false
 			});
+			if (event.type === "hashchange") {
+				window.scrollTo({ top: 0 });
+			}
 		}
 		window.addEventListener("scroll", scrollEvent);
 		window.addEventListener("hashchange", scrollEvent);
@@ -29,7 +32,7 @@ class Navbar extends React.Component {
 			<nav className={`navbar sticky-top shadow ${this.state.top ? 'top' : ''}`}>
 				<div className="container d-flex justify-content-between">
 					{this.state.mainSite ?
-						<Jump className="btn text-white bold" to="description" offset={this.offset}>
+						<Jump className="btn text-white bold" to="description" offset={-999}>
 							<img src={cats} alt="The Purrramid Icon" />
 							<span>The Purrramid</span>
 						</Jump>
