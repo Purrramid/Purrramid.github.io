@@ -175,3 +175,7 @@ a.more::after {
 a.more:hover::after {
 	padding: 0 0 0 .25em;
 }
+
+.cursor-pointer {
+	cursor: pointer;
+}

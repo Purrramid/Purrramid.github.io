@@ -54,11 +54,7 @@ class Streamers extends React.Component {
 				.then(r => r.text())
 				.then(JSON.parse)
 				.then(j => {
-					console.log(j);
 					j.streams.forEach(stream => {
-						// channelData[stream.channel._id].classList.add("live");
-						// element.insertBefore(channelData[stream.channel._id], element.firstChild);
-						// stream.channel._id
 						this.setState({
 							streamers: {
 								...this.state.streamers,
@@ -68,14 +64,12 @@ class Streamers extends React.Component {
 								}
 							}
 						});
-						console.log(this.state);
 					});
 				})
 				.finally(() => {
 					this.setState({
 						loading: false
 					});
-					console.log(this.state);
 				});
 		});
 	}
