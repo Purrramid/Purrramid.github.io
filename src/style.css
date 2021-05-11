@@ -63,10 +63,11 @@ nav img {
 }
 
 .user {
-	background-color: rgba(114, 137, 218, .1);
-	color: rgb(114 137 218);
+	background-color: rgba(114, 137, 218, 0.3);
+	color: rgb(255, 255, 255);
 	padding: 0 2px;
 	border-radius: 3px;
+	transition: background-color 50ms ease-out, color 50ms ease-out;
 }
 
 .user:hover {
