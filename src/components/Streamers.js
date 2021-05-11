@@ -19,9 +19,8 @@ class Streamers extends React.Component {
 			'Client-ID': 'i2x0iemvdx3sizjg7tz0vg3i6hnx3v'
 		}
 
-		this.firebase.database().ref("vips").once("value", async snap => {
-			/** @type {[]} */
-			const channels = snap.val();
+		this.firebase.then(async data => {
+			const channels = data.vips;
 			await fetch(`https://api.twitch.tv/kraken/channels?id=${channels.join(",")}`, { headers })
 				.then(r => r.text())
 				.then(JSON.parse)
@@ -71,6 +70,8 @@ class Streamers extends React.Component {
 						loading: false
 					});
 				});
+
+			return data;
 		});
 	}
 
@@ -87,7 +88,7 @@ class Streamers extends React.Component {
 							.sort((a, b) => Math.random() > .5 ? 1 : -1)
 							.sort((a, b) => a.isLive ? -1 : b.isLive ? 1 : 0)
 							.map(streamer => (
-								<a className={`${streamer.isLive ? 'live' : ''}`} key={streamer.id} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} /></a>
+								<a className={`${streamer.isLive ? 'live' : ''}`} key={`main-streamers-${streamer.id}`} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} /></a>
 							))
 					}
 				</streamers>

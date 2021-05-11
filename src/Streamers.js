@@ -22,12 +22,11 @@ class Streamers extends React.Component {
 			'Client-ID': 'i2x0iemvdx3sizjg7tz0vg3i6hnx3v'
 		}
 
-		this.firebase.database().ref("streamers").once("value", async snap => {
+		this.firebase.then(async data => {
 			/** @type {[]} */
-			const channels = snap.val();
+			const channels = data.streamers;
 			/** @type {[]} */
-			let vips;
-			await this.firebase.database().ref("vips").once("value", snap => vips = snap.val());
+			const vips = data.vips;
 
 			await fetch(`https://api.twitch.tv/kraken/channels?id=${channels.join(",")}`, { headers })
 				.then(r => r.text())
@@ -87,18 +86,18 @@ class Streamers extends React.Component {
 	render() {
 		return (
 			<main id="description">
-				<div class="container mt-5 px-3 text-white">
-					<div class="my-3" data-section="streamers">
+				<div className="container mt-5 px-3 text-white">
+					<div className="my-3" data-section="streamers">
 						<h2>Streamers</h2>
 						<p>This is a list of all the amazing streamers in the community!</p>
-						<div id="spinner" class="spinner-border" hidden={!this.state.loading}></div>
-						<div id="streamers" class="w-100">
+						<div id="spinner" className="spinner-border" hidden={!this.state.loading}></div>
+						<div id="streamers" className="w-100">
 							{
 								Object.values(this.state.streamers)
 									.sort((a, b) => Math.random() > .5 ? 1 : -1)
 									.sort((a, b) => a.isLive ? -1 : b.isLive ? 1 : 0)
-									.map(stream => (
-										<div className={`${stream.isVIP ? 'vip' : ''} ${stream.isLive ? 'live' : ''}`}>
+									.map((stream, i) => (
+										<div className={`${stream.isVIP ? 'vip' : ''} ${stream.isLive ? 'live' : ''}`} key={`streamers-${stream.id}`}>
 											<img src={stream.image} alt={stream.name} />
 											<div>
 												<h3>{stream.name}</h3>
@@ -107,8 +106,8 @@ class Streamers extends React.Component {
 												<a target="_blank" rel="noreferrer" href={stream.url} className="btn btn-outline-secondary">Watch on twitch.tv ↗</a>
 											</div>
 											<div hidden={stream.isLive === false && stream.isVIP === false}>
-												<div class="live-txt">LIVE</div>
-												<div class="vip-txt">VIP</div>
+												<div className="live-txt">LIVE</div>
+												<div className="vip-txt">VIP</div>
 											</div>
 										</div>
 									))
