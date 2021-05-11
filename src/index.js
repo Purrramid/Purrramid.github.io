@@ -15,13 +15,7 @@ import './style.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// eslint-disable-next-line
-import firebase from 'firebase/app';
-import 'firebase/database';
-
-firebase.initializeApp({
-  databaseURL: "https://djinnjadksnkjadsjknsadnjkdsa-default-rtdb.firebaseio.com"
-});
+const firebase = fetch("https://djinnjadksnkjadsjknsadnjkdsa-default-rtdb.firebaseio.com/.json").then(d => d.json());
 
 ReactDOM.render(
   <React.StrictMode>
