@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
 
 * {
 	--panash: #ff0048;
@@ -59,18 +59,19 @@ nav img {
 }
 
 .btn-blurple {
-	background-color: #7289DA;
+	background-color: rgb(88, 101, 242);
 }
 
 .user {
-	background-color: rgba(114, 137, 218, .1);
-	color: rgb(114 137 218);
+	background-color: rgba(88, 101, 242, .3);
+	color: rgb(255, 255, 255);
 	padding: 0 2px;
 	border-radius: 3px;
+	transition: background-color 50ms ease-out, color 50ms ease-out;
 }
 
 .user:hover {
-	background-color: #7289DA;
+	background-color: rgb(88, 101, 242);
 	color: white;
 }
 
