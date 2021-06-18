@@ -4,7 +4,7 @@ name: Publish to GitHub Pages
     branches:
       - master
 jobs:
-  "Publish to Pages":
+  Publish-to-Pages:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
