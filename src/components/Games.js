@@ -9,13 +9,13 @@ class Game extends React.Component {
 		super(props);
 
 		this.name = props.name;
-		this.img = `https://static-cdn.jtvnw.net/ttv-boxart/${encodeURIComponent(this.name)}.jpg`;
+		this.img = `https://static-cdn.jtvnw.net/ttv-boxart/${encodeURIComponent(this.name)}-300x400.jpg`;
 		this.website = props.href;
 	}
 	render() {
 		return (
 			<a rel="noreferrer" href={this.website} target="_blank">
-					<img src={this.img} alt={this.name} title={this.name} className="rounded border" />
+				<img src={this.img} alt={this.name} title={this.name} className="rounded border" draggable={false} />
 			</a>
 		)
 	}

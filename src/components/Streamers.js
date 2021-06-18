@@ -88,7 +88,7 @@ class Streamers extends React.Component {
 							.sort((a, b) => Math.random() > .5 ? 1 : -1)
 							.sort((a, b) => a.isLive ? -1 : b.isLive ? 1 : 0)
 							.map(streamer => (
-								<a className={`${streamer.isLive ? 'live' : ''}`} key={`main-streamers-${streamer.id}`} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} /></a>
+								<a className={`${streamer.isLive ? 'live' : ''}`} key={`main-streamers-${streamer.id}`} href={streamer.url} target="_blank" rel="noreferrer"><img alt={streamer.name} src={streamer.image} draggable={false} /></a>
 							))
 					}
 				</streamers>

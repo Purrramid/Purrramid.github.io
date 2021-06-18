@@ -98,12 +98,12 @@ class Streamers extends React.Component {
 									.sort((a, b) => a.isLive ? -1 : b.isLive ? 1 : 0)
 									.map((stream, i) => (
 										<div className={`${stream.isVIP ? 'vip' : ''} ${stream.isLive ? 'live' : ''}`} key={`streamers-${stream.id}`}>
-											<img src={stream.image} alt={stream.name} />
+											<img src={stream.image} alt={stream.name} draggable={false} />
 											<div>
 												<h3>{stream.name}</h3>
 												<p dangerouslySetInnerHTML={{ __html: twemoji.parse(stream.description) || "<i>No description provided.</i>" }} />
 												<p className="game">Currently live playing <b>{stream.game || "No Game"}</b></p>
-												<a target="_blank" rel="noreferrer" href={stream.url} className="btn btn-outline-secondary">Watch on twitch.tv ↗</a>
+												<a target="_blank" rel="noreferrer" href={stream.url} className="btn btn-outline-twitch">Watch on twitch.tv ↗</a>
 											</div>
 											<div hidden={stream.isLive === false && stream.isVIP === false}>
 												<div className="live-txt">LIVE</div>

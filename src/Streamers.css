@@ -52,6 +52,16 @@ main {
 	display: none;
 }
 
+.btn.btn-outline-twitch {
+	color: #ba8cff; /* better contrast */
+	border-color: #9146ff;
+}
+
+.btn.btn-outline-twitch:hover {
+	background-color: #9146ff;
+	color: #fff;
+}
+
 .emoji {
 	height: 1.5em;
 }
