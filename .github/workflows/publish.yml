@@ -7,8 +7,8 @@ jobs:
   Publish-to-Pages:
     runs-on: ubuntu-latest
     steps:
-      # - name: Check out repository code
-      #   uses: actions/checkout@v2
+      - name: Check out repository code
+        uses: actions/checkout@v2
       # - name: Install node
       #   uses: actions/setup-node@v2
       #   with:
@@ -16,7 +16,9 @@ jobs:
       # - name: Install node packages
       #   run: npm install
       - run: |
-          echo testing test test ${GITHUB_ACTOR}
           git config user.name ${GITHUB_ACTOR}
+          git config user.name
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.email
+
       # - run: npm run deploy
