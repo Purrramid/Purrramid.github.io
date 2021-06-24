@@ -24,9 +24,9 @@ class Streamers extends React.Component {
 
 		this.firebase.then(async data => {
 			/** @type {[]} */
-			const channels = data.streamers;
+			const channels = Object.values(data.streamers);
 			/** @type {[]} */
-			const vips = data.vips;
+			const vips = Object.values(data.vips);
 
 			await fetch(`https://api.twitch.tv/kraken/channels?id=${channels.join(",")}`, { headers })
 				.then(r => r.text())

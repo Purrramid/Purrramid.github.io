@@ -25,7 +25,7 @@ class Streamers extends React.Component {
 				.then(r => r.text())
 				.then(JSON.parse)
 				.then(j => {
-					j.channels.forEach(channel => {
+					Object.values(j.channels).forEach(channel => {
 						let icon = document.createElement("img");
 						icon.src = channel.logo;
 
