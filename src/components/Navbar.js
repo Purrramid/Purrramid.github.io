@@ -1,5 +1,5 @@
 import React from "react";
-import cats from "../img/cats.png";
+import cats from "../img/cats1x.png";
 import { Link as Jump } from 'react-scroll';
 
 class Navbar extends React.Component {

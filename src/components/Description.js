@@ -1,7 +1,6 @@
 import React from "react";
 import { Link as Jump } from 'react-scroll';
-import cats from '../img/cats.png';
-
+import { PNG as catsPNG, WebP as catsWebP } from "./img/cats";
 class Description extends React.Component {
 	offset = -60;
 
@@ -16,11 +15,19 @@ class Description extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-4">
-							<img src={cats} alt="Purrramid Icon" id="icon" />
+							<picture>
+								<source srcset={catsWebP[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/webp" />
+								<source srcset={catsWebP[1]} type="image/webp" />
+
+								<source srcset={catsPNG[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/png" />
+								<source srcset={catsPNG[1]} type="image/png" />
+
+								<img src={catsPNG[1]} alt="Purrramid Icon" id="icon" class="w-100 w-sm-auto" />
+							</picture>
 						</div>
 						<div className="p-5 col-sm-8">
 							<h1>We are The Purrramid!</h1>
-							<p>The Purrramid, more commonly known as “Fun Party House”, (nobody calls it that) is the perfect place to hang out online. We're a community with members all around the world, from San Francisco, USA to Sydney, AU.</p>
+							<p>The Purrramid is the perfect place to hang out online. We're a community with members all around the world, from San Francisco, USA to Sydney, AU.</p>
 							<p>We openly support individuals of any ethnicity, sexuality or gender identity. Any anti-LGBTQIA+, racist, sexist, or other kind of harassment is a big no-no.</p>
 							<a className="btn text-white btn-blurple px-4" href="https://discord.gg/y8XHJHAZ5C">Join the Discord!</a>
 						</div>
