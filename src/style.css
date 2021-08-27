@@ -199,3 +199,9 @@ a.more:hover::after {
 .cursor-pointer {
 	cursor: pointer;
 }
+
+.markdown img, .emote {
+	height: 1.5em;
+	display: inline-block;
+	margin: -.25em unset;
+}

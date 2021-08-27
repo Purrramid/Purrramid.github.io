@@ -46,6 +46,7 @@ class Navbar extends React.Component {
 						</a>
 					}
 					<div hidden={this.state.mainSite === false}>
+						<Jump className="btn text-white d-none d-sm-inline-block bold" to="news" offset={this.offset}>News</Jump>
 						<Jump className="btn text-white d-none d-sm-inline-block bold" to="community" offset={this.offset}>Community</Jump>
 						<Jump className="btn text-white d-none d-sm-inline-block bold" to="games" offset={this.offset}>Games</Jump>
 						<Jump className="btn text-white d-none d-sm-inline-block bold" to="streamers" offset={this.offset}>Streamers</Jump>

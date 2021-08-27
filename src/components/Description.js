@@ -8,6 +8,7 @@ class Description extends React.Component {
 		return (
 			<div id="description" className="bg-black-30 w-100 text-white">
 				<div className="navbar d-flex justify-content-around bold d-block d-sm-none">
+					<Jump className="btn text-white" to="news" offset={this.offset}>News</Jump>
 					<Jump className="btn text-white" to="community" offset={this.offset}>Community</Jump>
 					<Jump className="btn text-white" to="games" offset={this.offset}>Games</Jump>
 					<Jump className="btn text-white" to="streamers" offset={this.offset}>Streamers</Jump>
@@ -16,13 +17,13 @@ class Description extends React.Component {
 					<div className="row">
 						<div className="col-sm-4">
 							<picture>
-								<source srcset={catsWebP[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/webp" />
-								<source srcset={catsWebP[1]} type="image/webp" />
+								<source srcSet={catsWebP[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/webp" />
+								<source srcSet={catsWebP[1]} type="image/webp" />
 
-								<source srcset={catsPNG[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/png" />
-								<source srcset={catsPNG[1]} type="image/png" />
+								<source srcSet={catsPNG[0]} media="(min-width: 576px) and (max-width: 992px)" type="image/png" />
+								<source srcSet={catsPNG[1]} type="image/png" />
 
-								<img src={catsPNG[1]} alt="Purrramid Icon" id="icon" class="w-100 w-sm-auto" />
+								<img src={catsPNG[1]} alt="Purrramid Icon" id="icon" className="w-100 w-sm-auto" />
 							</picture>
 						</div>
 						<div className="p-5 col-sm-8">
